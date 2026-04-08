@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자인 매거진 — 디자인 트렌드 아카이브</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0c0c0e;
+            --surface: #141417;
+            --border: rgba(255,255,255,0.06);
+            --text: #ececf0;
+            --text-dim: #7a7a86;
+            --text-body: #a8a8b4;
+            --accent: #6366f1;
+            --font-kr: 'Noto Sans KR', sans-serif;
+            --font-kr-serif: 'Noto Serif KR', serif;
+            --font-en: 'Space Grotesk', sans-serif;
+            --font-en-serif: 'Playfair Display', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-kr);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .en { font-family: var(--font-en); }
+        .en-serif { font-family: var(--font-en-serif); }
+
+        /* ── Header ── */
+        header {
+            padding: 8rem 6% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            font-family: var(--font-en);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        header h1 {
+            font-family: var(--font-kr-serif);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        header h1 .en-serif {
+            font-style: italic;
+            font-weight: 400;
+            font-size: 0.85em;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: var(--text-body);
+            max-width: 560px;
+            font-weight: 300;
+            line-height: 1.9;
+        }
+
+        /* ── Issues Grid ── */
+        .issues {
+            padding: 0 6% 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .issues-label {
+            font-family: var(--font-en);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .issue-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s;
+            display: block;
+        }
+
+        .issue-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .issue-cover {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            display: block;
+        }
+
+        .issue-body {
+            padding: 1.6rem 1.6rem 1.8rem;
+        }
+
+        .issue-number {
+            font-family: var(--font-en);
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .issue-title {
+            font-family: var(--font-kr-serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+        }
+
+        .issue-title .en-serif {
+            font-family: var(--font-en-serif);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .issue-desc {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .issue-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .issue-date {
+            font-family: var(--font-en);
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
+
+        .issue-badge {
+            font-family: var(--font-en);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+            background: rgba(99,102,241,0.12);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 3rem 6%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-en);
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+        }
+
+        footer p {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        /* ── Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                        transform 0.7s cubic-bezier(0.22,1,0.36,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 640px) {
+            header { padding: 6rem 5% 3rem; }
+            .issues { padding: 0 5% 4rem; }
+            .issues-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand en">JAIN Magazine</div>
+    <h1>디자인 트렌드 <span class="en-serif">Archive</span></h1>
+    <p>매주 수집하는 디자인 트렌드와 리서치. 학술적 깊이는 유지하되, 교과서 냄새는 빼고. 시니컬하지만 유쾌하게.</p>
+</header>
+
+<section class="issues">
+    <div class="issues-label en">All Issues</div>
+    <div class="issues-grid">
+
+        <!-- Issue 01 -->
+        <a href="./2026-04-w1/" class="issue-card reveal">
+            <img class="issue-cover" src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80" alt="Issue 01 cover">
+            <div class="issue-body">
+                <div class="issue-number en">Issue No. 01</div>
+                <div class="issue-title">완벽함에 질린 시대, 디자인은 <span class="en-serif">Imperfect</span>을 선택했다</div>
+                <div class="issue-desc">2026 디자인 트렌드 10선 + 6개 분야 리서치. 불완전의 미학, 글래스모피즘의 귀환, AI 부조종사, 그리고 서비스디자인 0.5%의 역설까지.</div>
+                <div class="issue-meta">
+                    <span class="issue-date en">Apr 7, 2026</span>
+                    <span class="issue-badge en">Latest</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Placeholder for next issue -->
+        <div class="issue-card reveal" style="opacity:0.3; pointer-events:none; border-style:dashed;">
+            <div style="aspect-ratio:16/10; background:var(--surface); display:flex; align-items:center; justify-content:center;">
+                <span style="font-size:2rem; color:rgba(255,255,255,0.08);">+</span>
+            </div>
+            <div class="issue-body">
+                <div class="issue-number en">Issue No. 02</div>
+                <div class="issue-title" style="color:var(--text-dim);">다음 호 준비 중</div>
+                <div class="issue-desc">다음 주 업데이트 예정</div>
+                <div class="issue-meta">
+                    <span class="issue-date en">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-brand en">JAIN — Design Research Hub</div>
+    <p>디자인 대학 교수의 수업 도우미가 매주 발행하는 트렌드 매거진</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
